@@ -1,6 +1,12 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default class ApplicationController extends Controller {
+  @computed('books.@each')
+  get sortedBooks(){
+    return this.books.sortBy('publicationYear')
+  }
+
   books = [{
     name: 'Brave New World',
     author: 'Aldous Huxley',
