@@ -40,7 +40,7 @@
   cursor: default;
 }
 
-.table-cell.header.sortable {
+.clickable {
   cursor: pointer;
 }
 

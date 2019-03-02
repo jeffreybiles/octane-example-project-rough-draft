@@ -63,13 +63,8 @@ export default class ApplicationController extends Controller {
   }
 
   @action
-  sortBooks(property){
-    let isSamePropertyAsLastTime = property === this.sortProperty
-    if(isSamePropertyAsLastTime){
-      this.toggleProperty('reversed');
-    } else {
-      this.set('reversed', false);
-    }
+  sortBooks(property, reversed){
+    this.set('reversed', reversed);
     this.set('sortProperty', property);
   }
 }
