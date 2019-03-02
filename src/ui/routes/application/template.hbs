@@ -2,18 +2,15 @@
 
 <div class="Rtable Rtable--4cols">
   <div class="Rtable-cell header">Name</div>
-  <div class="Rtable-cell header">Location</div>
-  <div class="Rtable-cell header">Market</div>
-  <div class="Rtable-cell header">Total Raised</div>
+  <div class="Rtable-cell header">Author</div>
+  <div class="Rtable-cell header">Publication Year</div>
+  <div class="Rtable-cell header">Pages</div>
 
-  <div class="Rtable-cell">{{happyProgrammer.name}}</div>
-  <div class="Rtable-cell">{{happyProgrammer.location}}</div>
-  <div class="Rtable-cell">{{happyProgrammer.market}}</div>
-  <div class="Rtable-cell">{{happyProgrammer.totalRaised}}</div>
-
-  <div class="Rtable-cell zebra">{{happyProgrammer.name}}</div>
-  <div class="Rtable-cell zebra">{{happyProgrammer.location}}</div>
-  <div class="Rtable-cell zebra">{{happyProgrammer.market}}</div>
-  <div class="Rtable-cell zebra">{{happyProgrammer.totalRaised}}</div>
+  {{#each books as |book|}}
+    <div class="Rtable-cell">{{book.name}}</div>
+    <div class="Rtable-cell">{{book.author}}</div>
+    <div class="Rtable-cell">{{book.publicationYear}}</div>
+    <div class="Rtable-cell">{{book.pages}}</div>
+  {{/each}}
 </div>
 {{outlet}}

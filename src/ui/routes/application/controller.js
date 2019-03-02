@@ -1,11 +1,35 @@
 import Controller from '@ember/controller';
 
 export default class ApplicationController extends Controller {
-  happyProgrammer = {
-    name: 'Happy Programmer',
-    location: 'Austin',
-    market: 'Education',
-    website: 'http://www.happyprogrammer.net',
-    totalRaised: '0'
-  }
+  books = [{
+    name: 'Brave New World',
+    author: 'Aldous Huxley',
+    publicationYear: 1932,
+    pages: 248,
+  }, {
+    name: 'The Way of Kings',
+    author: 'Brandon Sanderson',
+    publicationYear: 2010,
+    pages: 1007,
+  }, {
+    name: 'Gulag Archipelago',
+    author: 'Aleksandr Solzhenitsyn',
+    publicationYear: 1973,
+    pages: 2032,
+  }, {
+    name: 'A Fire Upon the Deep',
+    author: 'Vernor Vinge',
+    publicationYear: 1992,
+    pages: 391,
+  }, {
+    name: 'Speaker for the Dead',
+    author: 'Orson Scott Card',
+    publicationYear: 1986,
+    pages: 415
+  }, {
+    name: 'My Hero Academia volume 1',
+    author: 'Kohei Horikoshi',
+    publicationYear: 2014,
+    pages: 192
+  }]
 }
