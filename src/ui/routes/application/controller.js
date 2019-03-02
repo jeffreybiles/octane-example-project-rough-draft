@@ -5,10 +5,16 @@ import { computed } from '@ember/object';
 
 export default class ApplicationController extends Controller {
   sortProperty = 'publicationYear'
+  reversed = false
 
-  @computed('books', 'sortProperty')
+  @computed('books', 'sortProperty', 'reversed')
   get sortedBooks(){
-    return this.books.sortBy(this.sortProperty)
+    let sortedBooks = this.books.sortBy(this.sortProperty)
+    if(this.reversed) {
+      return sortedBooks.reverse();
+    } else {
+      return sortedBooks;
+    }
   }
 
   // note: this is not the final way we're doing this.  Do not replicate data like this.
@@ -58,6 +64,12 @@ export default class ApplicationController extends Controller {
 
   @action
   sortBooks(property){
+    let isSamePropertyAsLastTime = property === this.sortProperty
+    if(isSamePropertyAsLastTime){
+      this.toggleProperty('reversed');
+    } else {
+      this.set('reversed', false);
+    }
     this.set('sortProperty', property);
   }
 }
