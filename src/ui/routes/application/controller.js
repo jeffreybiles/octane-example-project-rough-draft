@@ -57,7 +57,7 @@ export default class ApplicationController extends Controller {
   }
 
   @action
-  sortByPages(){
-    this.set('sortProperty', 'pages');
+  sortBooks(property){
+    this.set('sortProperty', property);
   }
 }

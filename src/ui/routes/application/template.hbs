@@ -4,10 +4,10 @@ Selected: {{selectedBook.name}}
 
 <div class="table table--4cols">
   <div class="table-row">
-    <div class="table-cell header">Name</div>
-    <div class="table-cell header">Author</div>
-    <div class="table-cell header">Publication Year</div>
-    <div class="table-cell header sortable" {{action sortByPages}}>Pages</div>
+    <div class="table-cell header sortable" {{action 'sortBooks' 'name'}}>Name</div>
+    <div class="table-cell header sortable" {{action 'sortBooks' 'author'}}>Author</div>
+    <div class="table-cell header sortable" {{action 'sortBooks' 'publicationYear'}}>Publication Year</div>
+    <div class="table-cell header sortable" {{action 'sortBooks' 'pages'}}>Pages</div>
   </div>
 
   {{#each sortedBooks as |book|}}
