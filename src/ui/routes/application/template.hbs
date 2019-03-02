@@ -1,6 +1,14 @@
-<h2 id="title">Welcome to Ember Octane</h2>
+<h2 id="title">Companies List</h2>
 
-<div class="cool">
-  Isn't it cool?  {{testVar}}
+<div class="Rtable Rtable--4cols">
+  <div class="Rtable-cell">Name</div>
+  <div class="Rtable-cell">Location</div>
+  <div class="Rtable-cell">Market</div>
+  <div class="Rtable-cell">Total Raised</div>
+
+  <div class="Rtable-cell">{{happyProgrammer.name}}</div>
+  <div class="Rtable-cell">{{happyProgrammer.location}}</div>
+  <div class="Rtable-cell">{{happyProgrammer.market}}</div>
+  <div class="Rtable-cell">{{happyProgrammer.totalRaised}}</div>
 </div>
 {{outlet}}
