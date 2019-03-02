@@ -1,10 +1,14 @@
 import Controller from '@ember/controller';
-import { action, computed } from '@ember-decorators/object';
+import { action } from '@ember-decorators/object';
+import { computed } from '@ember/object';
 
 
 export default class ApplicationController extends Controller {
+  sortProperty = 'publicationYear'
+
+  @computed('books', 'sortProperty')
   get sortedBooks(){
-    return this.books.sortBy('publicationYear')
+    return this.books.sortBy(this.sortProperty)
   }
 
   // note: this is not the final way we're doing this.  Do not replicate data like this.
@@ -50,5 +54,10 @@ export default class ApplicationController extends Controller {
   @action
   selectBook(book){
     this.set('selectedBook', book)
+  }
+
+  @action
+  sortByPages(){
+    this.set('sortProperty', 'pages');
   }
 }

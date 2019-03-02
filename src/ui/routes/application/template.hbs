@@ -7,7 +7,7 @@ Selected: {{selectedBook.name}}
     <div class="table-cell header">Name</div>
     <div class="table-cell header">Author</div>
     <div class="table-cell header">Publication Year</div>
-    <div class="table-cell header">Pages</div>
+    <div class="table-cell header sortable" {{action sortByPages}}>Pages</div>
   </div>
 
   {{#each sortedBooks as |book|}}

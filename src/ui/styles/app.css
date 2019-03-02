@@ -37,6 +37,11 @@
 .table-cell.header {
   font-weight: bold;
   background-color: #DADADA;
+  cursor: default;
+}
+
+.table-cell.header.sortable {
+  cursor: pointer;
 }
 
 .table-cell.zebra {
