@@ -1,10 +1,18 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { action, computed } from '@ember-decorators/object';
+
 
 export default class ApplicationController extends Controller {
-  @computed('books.@each')
   get sortedBooks(){
     return this.books.sortBy('publicationYear')
+  }
+
+  // note: this is not the final way we're doing this.  Do not replicate data like this.
+  selectedBook = {
+    name: 'Brave New World',
+    author: 'Aldous Huxley',
+    publicationYear: 1932,
+    pages: 248,
   }
 
   books = [{
@@ -38,4 +46,9 @@ export default class ApplicationController extends Controller {
     publicationYear: 2014,
     pages: 192
   }]
+
+  @action
+  selectBook(book){
+    this.set('selectedBook', book)
+  }
 }

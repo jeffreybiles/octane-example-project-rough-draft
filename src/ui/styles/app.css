@@ -7,13 +7,21 @@
 
 /* Tables
 ================================== */
-.Rtable {
+.table {
   display: flex;
   flex-wrap: wrap;
   margin: 0 0 3em 0;
   padding: 0;
 }
-.Rtable-cell {
+.table-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  flex-grow: 1;
+  width: 100%;
+  cursor: pointer;
+}
+.table-cell {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%; /* Default to full width */
@@ -26,19 +34,19 @@
   > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
 }
 
-.Rtable-cell.header {
+.table-cell.header {
   font-weight: bold;
   background-color: #DADADA;
 }
 
-.Rtable-cell.zebra {
+.table-cell.zebra {
   background: #EEE;
 }
 
 /* Table column sizing
 ================================== */
-.Rtable--2cols > .Rtable-cell  { width: 50%; }
-.Rtable--3cols > .Rtable-cell  { width: 33.33%; }
-.Rtable--4cols > .Rtable-cell  { width: 25%; }
-.Rtable--5cols > .Rtable-cell  { width: 20%; }
-.Rtable--6cols > .Rtable-cell  { width: 16.6%; }
+.table--2cols > .table-row > .table-cell  { width: 50%; }
+.table--3cols > .table-row > .table-cell  { width: 33.33%; }
+.table--4cols > .table-row > .table-cell  { width: 25%; }
+.table--5cols > .table-row > .table-cell  { width: 20%; }
+.table--6cols > .table-row > .table-cell  { width: 16.6%; }
