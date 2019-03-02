@@ -1,14 +1,19 @@
 <h2 id="title">Companies List</h2>
 
 <div class="Rtable Rtable--4cols">
-  <div class="Rtable-cell">Name</div>
-  <div class="Rtable-cell">Location</div>
-  <div class="Rtable-cell">Market</div>
-  <div class="Rtable-cell">Total Raised</div>
+  <div class="Rtable-cell header">Name</div>
+  <div class="Rtable-cell header">Location</div>
+  <div class="Rtable-cell header">Market</div>
+  <div class="Rtable-cell header">Total Raised</div>
 
   <div class="Rtable-cell">{{happyProgrammer.name}}</div>
   <div class="Rtable-cell">{{happyProgrammer.location}}</div>
   <div class="Rtable-cell">{{happyProgrammer.market}}</div>
   <div class="Rtable-cell">{{happyProgrammer.totalRaised}}</div>
+
+  <div class="Rtable-cell zebra">{{happyProgrammer.name}}</div>
+  <div class="Rtable-cell zebra">{{happyProgrammer.location}}</div>
+  <div class="Rtable-cell zebra">{{happyProgrammer.market}}</div>
+  <div class="Rtable-cell zebra">{{happyProgrammer.totalRaised}}</div>
 </div>
 {{outlet}}

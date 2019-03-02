@@ -20,9 +20,19 @@
   padding: 0.8em 1.2em;
   overflow: hidden; /* Or flex might break */
   list-style: none;
-  border: solid 3px white;
-  background: #EEE;
+  border: solid 1px #AAA;
+  background: white;
+
   > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+}
+
+.Rtable-cell.header {
+  font-weight: bold;
+  background-color: #DADADA;
+}
+
+.Rtable-cell.zebra {
+  background: #EEE;
 }
 
 /* Table column sizing
