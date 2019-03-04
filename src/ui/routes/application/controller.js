@@ -33,6 +33,13 @@ export default class ApplicationController extends Controller {
     })
   }
 
+  @computed('hiddenBookIds.[]', 'sortedBooks.@each.id')
+  get hiddenBooks(){
+    return this.sortedBooks.filter(book => {
+      return this.hiddenBookIds.includes(book.id)
+    })
+  }
+
   books = [{
     id: 1,
     name: 'Brave New World',
@@ -85,5 +92,10 @@ export default class ApplicationController extends Controller {
   @action
   hideBook(book){
     this.hiddenBookIds.pushObject(book.id)
+  }
+
+  @action
+  showBook(book){
+    this.hiddenBookIds.removeObject(book.id)
   }
 }
