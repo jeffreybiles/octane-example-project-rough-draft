@@ -1,0 +1,7 @@
+<div class="table-row {{if (eq @book.id @selectedBookId) 'selected'}}" {{action selectMyBook @book}}>
+  <div class="table-cell">{{@book.name}}</div>
+  <div class="table-cell">{{@book.author}}</div>
+  <div class="table-cell">{{@book.publicationYear}}</div>
+  <div class="table-cell">{{@book.pages}}</div>
+  <div class="table-cell"><button {{action hideMyBook @book}}>Hide</button></div>
+</div>

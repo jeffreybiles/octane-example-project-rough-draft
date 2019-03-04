@@ -11,14 +11,9 @@ Selected: {{selectedBook.name}}
     <SortableHeader @columnName="Actions" />
   </div>
 
+
   {{#each shownBooks as |book|}}
-    <div class="table-row {{if (eq book.id selectedBookId) 'selected'}}" {{action selectBook book}}>
-      <div class="table-cell">{{book.name}}</div>
-      <div class="table-cell">{{book.author}}</div>
-      <div class="table-cell">{{book.publicationYear}}</div>
-      <div class="table-cell">{{book.pages}}</div>
-      <div class="table-cell"><button {{action hideBook book}}>Hide</button></div>
-    </div>
+    <BookTableRow @book={{book}} @selectedBookId={{selectedBookId}} @selectBook={{action "selectBook"}} @hideBook={{action "hideBook"}} />
   {{/each}}
 
   {{#if hiddenBooks}}<h2>Hidden Books</h2>{{/if}}
