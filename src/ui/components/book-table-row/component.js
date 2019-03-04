@@ -17,6 +17,6 @@ export default class BookTableRowComponent extends Component {
 
   @action
   toggleMyBook(){
-    this.toggleBook(this.book);
+    this.toggleHidden(this.book);
   }
 }

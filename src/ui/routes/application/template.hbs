@@ -16,7 +16,7 @@ Selected: {{selectedBook.name}}
     <BookTableRow @book={{book}}
                   @selectedBookId={{selectedBookId}}
                   @selectBook={{action "selectBook"}}
-                  @toggleBook={{action "hideBook"}}
+                  @toggleHidden={{action "hideBook"}}
                   @toggleText="Hide" />
   {{/each}}
 
@@ -26,7 +26,7 @@ Selected: {{selectedBook.name}}
     <BookTableRow @book={{book}}
                   @selectedBookId={{selectedBookId}}
                   @selectBook={{action "selectBook"}}
-                  @toggleBook={{action "showBook"}}
+                  @toggleHidden={{action "showBook"}}
                   @toggleText="Show" />
   {{/each}}
 </div>
