@@ -26,7 +26,7 @@ export default class ApplicationController extends Controller {
 
   hiddenBookIds = [2, 3]
 
-  @computed('hiddenBookIds', 'sortedBooks')
+  @computed('hiddenBookIds.[]', 'sortedBooks')
   get shownBooks(){
     return this.sortedBooks.filter(book => {
       return !this.hiddenBookIds.includes(book.id)
@@ -84,6 +84,6 @@ export default class ApplicationController extends Controller {
 
   @action
   hideBook(book){
-    
+    this.hiddenBookIds.pushObject(book.id)
   }
 }
