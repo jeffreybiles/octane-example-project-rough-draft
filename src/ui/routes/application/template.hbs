@@ -10,7 +10,7 @@ Selected: {{selectedBook.name}}
     <SortableHeader @columnName="Pages" @sortBooks={{action "sortBooks"}} @sortProperty='pages' />
   </div>
 
-  {{#each sortedBooks as |book|}}
+  {{#each shownBooks as |book|}}
     <div class="table-row" {{action selectBook book}}>
       <div class="table-cell">{{book.name}}</div>
       <div class="table-cell">{{book.author}}</div>

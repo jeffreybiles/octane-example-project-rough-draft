@@ -24,6 +24,15 @@ export default class ApplicationController extends Controller {
     return this.books.findBy('id', this.selectedBookId)
   }
 
+  hiddenBookIds = [2, 3]
+
+  @computed('hiddenBookIds', 'sortedBooks')
+  get shownBooks(){
+    return this.sortedBooks.filter(book => {
+      return !this.hiddenBookIds.includes(book.id)
+    })
+  }
+
   books = [{
     id: 1,
     name: 'Brave New World',
