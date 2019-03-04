@@ -81,4 +81,9 @@ export default class ApplicationController extends Controller {
     this.set('reversed', reversed);
     this.set('sortProperty', property);
   }
+
+  @action
+  hideBook(book){
+    
+  }
 }

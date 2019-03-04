@@ -2,12 +2,13 @@
 
 Selected: {{selectedBook.name}}
 
-<div class="table table--4cols">
+<div class="table table--5cols">
   <div class="table-row">
     <SortableHeader @columnName="Name" @sortBooks={{action "sortBooks"}} @sortProperty='name' />
     <SortableHeader @columnName="Author" @sortBooks={{action "sortBooks"}} @sortProperty='author' />
     <SortableHeader @columnName="Publication Year" @sortBooks={{action "sortBooks"}} @sortProperty='publicationYear' />
     <SortableHeader @columnName="Pages" @sortBooks={{action "sortBooks"}} @sortProperty='pages' />
+    <SortableHeader @columnName="Actions" />
   </div>
 
   {{#each shownBooks as |book|}}
@@ -16,6 +17,7 @@ Selected: {{selectedBook.name}}
       <div class="table-cell">{{book.author}}</div>
       <div class="table-cell">{{book.publicationYear}}</div>
       <div class="table-cell">{{book.pages}}</div>
+      <div class="table-cell"><button {{action hideBook book}}>Hide</button></div>
     </div>
   {{/each}}
 </div>
