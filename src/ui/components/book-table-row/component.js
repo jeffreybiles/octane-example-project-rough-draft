@@ -5,9 +5,9 @@ import { computed } from '@ember/object';
 export default class BookTableRowComponent extends Component {
   tagName = ''
 
-  @computed('selectedBookId', 'book')
+  @computed('selectedBookIds', 'book')
   get isSelected(){
-    return this.selectedBookId == this.book.id
+    return this.selectedBookIds.includes(this.book.id);
   }
 
   @action

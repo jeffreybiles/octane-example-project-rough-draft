@@ -1,7 +1,5 @@
 <h2 id="title">Companies List</h2>
 
-Selected: {{selectedBook.name}}
-
 <div class="table table--5cols">
   <div class="table-row">
     <SortableHeader @columnName="Name" @sortBooks={{action "sortBooks"}} @sortProperty='name' />
@@ -14,7 +12,7 @@ Selected: {{selectedBook.name}}
 
   {{#each shownBooks as |book|}}
     <BookTableRow @book={{book}}
-                  @selectedBookId={{selectedBookId}}
+                  @selectedBookIds={{selectedBookIds}}
                   @selectBook={{action "selectBook"}}
                   @toggleHidden={{action "hideBook"}}
                   @toggleText="Hide" />
@@ -24,7 +22,7 @@ Selected: {{selectedBook.name}}
 
   {{#each hiddenBooks as |book|}}
     <BookTableRow @book={{book}}
-                  @selectedBookId={{selectedBookId}}
+                  @selectedBookIds={{selectedBookIds}}
                   @selectBook={{action "selectBook"}}
                   @toggleHidden={{action "showBook"}}
                   @toggleText="Show" />

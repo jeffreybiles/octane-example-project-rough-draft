@@ -17,7 +17,7 @@ export default class ApplicationController extends Controller {
     }
   }
 
-  selectedBookId = 1
+  selectedBookIds = [1, 4]
 
   @computed('selectedBookId', 'books.@each.id')
   get selectedBook(){
