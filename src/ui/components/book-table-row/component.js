@@ -5,14 +5,14 @@ import { computed } from '@ember/object';
 export default class BookTableRowComponent extends Component {
   tagName = ''
 
-  @computed('selectedBookIds', 'book')
+  @computed('selectedBookIds.[]', 'book')
   get isSelected(){
     return this.selectedBookIds.includes(this.book.id);
   }
 
   @action
-  selectMyBook(){
-    this.selectBook(this.book);
+  toggleMySelection(){
+    this.toggleSelection(this.book, this.isSelected);
   }
 
   @action

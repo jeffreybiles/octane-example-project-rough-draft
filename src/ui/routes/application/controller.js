@@ -79,8 +79,12 @@ export default class ApplicationController extends Controller {
   }]
 
   @action
-  selectBook(book){
-    this.set('selectedBookId', book.id)
+  toggleSelection(book, isSelected){
+    if(isSelected) {
+      this.selectedBookIds.removeObject(book.id)
+    } else {
+      this.selectedBookIds.pushObject(book.id)
+    }
   }
 
   @action

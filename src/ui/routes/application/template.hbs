@@ -13,7 +13,7 @@
   {{#each shownBooks as |book|}}
     <BookTableRow @book={{book}}
                   @selectedBookIds={{selectedBookIds}}
-                  @selectBook={{action "selectBook"}}
+                  @toggleSelection={{action "toggleSelection"}}
                   @toggleHidden={{action "hideBook"}}
                   @toggleText="Hide" />
   {{/each}}
@@ -23,7 +23,7 @@
   {{#each hiddenBooks as |book|}}
     <BookTableRow @book={{book}}
                   @selectedBookIds={{selectedBookIds}}
-                  @selectBook={{action "selectBook"}}
+                  @toggleSelection={{action "toggleSelection"}}
                   @toggleHidden={{action "showBook"}}
                   @toggleText="Show" />
   {{/each}}
