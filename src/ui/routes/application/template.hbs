@@ -13,13 +13,21 @@ Selected: {{selectedBook.name}}
 
 
   {{#each shownBooks as |book|}}
-    <BookTableRow @book={{book}} @selectedBookId={{selectedBookId}} @selectBook={{action "selectBook"}} @toggleBook={{action "hideBook"}} @toggleText="Hide" />
+    <BookTableRow @book={{book}}
+                  @selectedBookId={{selectedBookId}}
+                  @selectBook={{action "selectBook"}}
+                  @toggleBook={{action "hideBook"}}
+                  @toggleText="Hide" />
   {{/each}}
 
   {{#if hiddenBooks}}<h2>Hidden Books</h2>{{/if}}
 
   {{#each hiddenBooks as |book|}}
-    <BookTableRow @book={{book}} @selectedBookId={{selectedBookId}} @selectBook={{action "selectBook"}} @toggleBook={{action "showBook"}} @toggleText="Show" />
+    <BookTableRow @book={{book}}
+                  @selectedBookId={{selectedBookId}}
+                  @selectBook={{action "selectBook"}}
+                  @toggleBook={{action "showBook"}}
+                  @toggleText="Show" />
   {{/each}}
 </div>
 {{outlet}}
