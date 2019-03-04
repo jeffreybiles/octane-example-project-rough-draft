@@ -12,7 +12,7 @@ Selected: {{selectedBook.name}}
   </div>
 
   {{#each shownBooks as |book|}}
-    <div class="table-row" {{action selectBook book}}>
+    <div class="table-row {{if (eq book.id selectedBookId) 'selected'}}" {{action selectBook book}}>
       <div class="table-cell">{{book.name}}</div>
       <div class="table-cell">{{book.author}}</div>
       <div class="table-cell">{{book.publicationYear}}</div>
@@ -22,7 +22,7 @@ Selected: {{selectedBook.name}}
   {{/each}}
 
   {{#if hiddenBooks}}<h2>Hidden Books</h2>{{/if}}
-  
+
   {{#each hiddenBooks as |book|}}
     <div class="table-row" {{action selectBook book}}>
       <div class="table-cell">{{book.name}}</div>

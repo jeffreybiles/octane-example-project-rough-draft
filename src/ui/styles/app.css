@@ -48,6 +48,11 @@
   background: #EEE;
 }
 
+.table-row.selected .table-cell {
+  background: #BBE;
+  border-color: #555;
+}
+
 /* Table column sizing
 ================================== */
 .table--2cols > .table-row > .table-cell  { width: 50%; }
