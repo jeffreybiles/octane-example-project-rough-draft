@@ -7,7 +7,7 @@ export default class ApplicationController extends Controller {
   sortProperty = 'publicationYear'
   reversed = false
 
-  @computed('books', 'sortProperty', 'reversed')
+  @computed('books.[]', 'sortProperty', 'reversed')
   get sortedBooks(){
     let sortedBooks = this.books.sortBy(this.sortProperty)
     if(this.reversed) {
@@ -19,14 +19,14 @@ export default class ApplicationController extends Controller {
 
   selectedBookId = 1
 
-  @computed('selectedBookId', 'books')
+  @computed('selectedBookId', 'books.@each.id')
   get selectedBook(){
     return this.books.findBy('id', this.selectedBookId)
   }
 
   hiddenBookIds = [2, 3]
 
-  @computed('hiddenBookIds.[]', 'sortedBooks')
+  @computed('hiddenBookIds.[]', 'sortedBooks.@each.id')
   get shownBooks(){
     return this.sortedBooks.filter(book => {
       return !this.hiddenBookIds.includes(book.id)
