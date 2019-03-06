@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
 import { action } from '@ember-decorators/object';
 import { computed } from '@ember/object';
-import { intersect } from '@ember-decorators/object/computed'
 
 
 export default class ApplicationController extends Controller {
@@ -20,7 +19,7 @@ export default class ApplicationController extends Controller {
 
   selectedBookIds = [1, 4]
 
-  @computed('selectedBookIds', 'books.@each.id')
+  @computed('selectedBookIds.[]', 'books.[]')
   get selectedBooks(){
     return this.sortedBooks.filter(book => {
       return this.selectedBookIds.includes(book.id);
@@ -29,22 +28,21 @@ export default class ApplicationController extends Controller {
 
   hiddenBookIds = [2, 3]
 
-  @computed('hiddenBookIds.[]', 'sortedBooks.@each.id')
+  @computed('hiddenBookIds.[]', 'sortedBooks.[]')
   get shownBooks(){
     return this.sortedBooks.filter(book => {
       return !this.hiddenBookIds.includes(book.id)
     })
   }
 
-  @computed('hiddenBookIds.[]', 'sortedBooks.@each.id')
+  @computed('hiddenBookIds.[]', 'sortedBooks.[]')
   get hiddenBooks(){
     return this.sortedBooks.filter(book => {
       return this.hiddenBookIds.includes(book.id)
     })
   }
 
-  @action
-  toggleSelection(book, isSelected){
+  @action toggleSelection(book, isSelected){
     if(isSelected) {
       this.selectedBookIds.removeObject(book.id)
     } else {
@@ -52,29 +50,17 @@ export default class ApplicationController extends Controller {
     }
   }
 
-  @action
-  sortBooks(property, reversed){
+  @action sortBooks(property, reversed){
     this.set('reversed', reversed);
     this.set('sortProperty', property);
   }
 
-  @action
-  hideBook(book){ this.hiddenBookIds.pushObject(book.id) }
-
-  @action
-  hideAllSelected(){ this.hiddenBookIds.pushObjects(this.selectedBookIds); }
-
-  @action
-  showBook(book){ this.hiddenBookIds.removeObject(book.id) }
-
-  @action
-  showAllSelected(){ this.hiddenBookIds.removeObjects(this.selectedBookIds); }
-
-  @action
-  selectAll(){ this.set('selectedBookIds', this.sortedBooks.mapBy('id')); }
-
-  @action
-  unselectAll(){ this.set('selectedBookIds', []); }
+  @action hideBook(book){ this.hiddenBookIds.pushObject(book.id) }
+  @action hideAllSelected(){ this.hiddenBookIds.pushObjects(this.selectedBookIds); }
+  @action showBook(book){ this.hiddenBookIds.removeObject(book.id) }
+  @action showAllSelected(){ this.hiddenBookIds.removeObjects(this.selectedBookIds); }
+  @action selectAll(){ this.set('selectedBookIds', this.sortedBooks.mapBy('id')); }
+  @action unselectAll(){ this.set('selectedBookIds', []); }
 
   books = [{
     id: 1,
