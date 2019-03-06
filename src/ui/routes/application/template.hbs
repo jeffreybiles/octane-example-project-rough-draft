@@ -22,6 +22,8 @@ Bulk Actions:
                   @toggleSelection={{action "toggleSelection"}}
                   @toggleHidden={{action "hideBook"}}
                   @toggleText="Hide" />
+  {{else}}
+    <div class="table-row"><p>All your books are hidden.</p></div>
   {{/each}}
 
   {{#if hiddenBooks}}<h2>Hidden Books</h2>{{/if}}
