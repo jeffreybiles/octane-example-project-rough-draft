@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember-decorators/object';
 import { computed } from '@ember/object';
+import { setDiff, mapBy } from '@ember-decorators/object/computed';
 
 
 export default class ApplicationController extends Controller {
@@ -19,6 +20,8 @@ export default class ApplicationController extends Controller {
 
   selectedBookIds = [1, 4]
   hiddenBookIds = [2, 3]
+  @mapBy('sortedBooks', 'id') sortedBookIds;
+  // @setDiff('sortedBookIds', 'hiddenBookIds') shownBookIds
 
   @computed('selectedBookIds.[]', 'books.[]')
   get selectedBooks(){ return this.booksFromIds(this.selectedBookIds) }
