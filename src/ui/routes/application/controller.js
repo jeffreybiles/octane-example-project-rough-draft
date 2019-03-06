@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember-decorators/object';
 import { computed } from '@ember/object';
+import { intersect } from '@ember-decorators/object/computed'
 
 
 export default class ApplicationController extends Controller {
@@ -19,9 +20,11 @@ export default class ApplicationController extends Controller {
 
   selectedBookIds = [1, 4]
 
-  @computed('selectedBookId', 'books.@each.id')
-  get selectedBook(){
-    return this.books.findBy('id', this.selectedBookId)
+  @computed('selectedBookIds', 'books.@each.id')
+  get selectedBooks(){
+    return this.sortedBooks.filter(book => {
+      return this.selectedBookIds.includes(book.id);
+    })
   }
 
   hiddenBookIds = [2, 3]
@@ -96,6 +99,11 @@ export default class ApplicationController extends Controller {
   @action
   hideBook(book){
     this.hiddenBookIds.pushObject(book.id)
+  }
+
+  @action
+  hideAllSelected(){
+    this.hiddenBookIds.pushObjects(this.selectedBookIds);
   }
 
   @action
