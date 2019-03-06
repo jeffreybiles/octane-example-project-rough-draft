@@ -43,6 +43,39 @@ export default class ApplicationController extends Controller {
     })
   }
 
+  @action
+  toggleSelection(book, isSelected){
+    if(isSelected) {
+      this.selectedBookIds.removeObject(book.id)
+    } else {
+      this.selectedBookIds.pushObject(book.id)
+    }
+  }
+
+  @action
+  sortBooks(property, reversed){
+    this.set('reversed', reversed);
+    this.set('sortProperty', property);
+  }
+
+  @action
+  hideBook(book){ this.hiddenBookIds.pushObject(book.id) }
+
+  @action
+  hideAllSelected(){ this.hiddenBookIds.pushObjects(this.selectedBookIds); }
+
+  @action
+  showBook(book){ this.hiddenBookIds.removeObject(book.id) }
+
+  @action
+  showAllSelected(){ this.hiddenBookIds.removeObjects(this.selectedBookIds); }
+
+  @action
+  selectAll(){ this.set('selectedBookIds', this.sortedBooks.mapBy('id')); }
+
+  @action
+  unselectAll(){ this.set('selectedBookIds', []); }
+
   books = [{
     id: 1,
     name: 'Brave New World',
@@ -80,49 +113,4 @@ export default class ApplicationController extends Controller {
     publicationYear: 2014,
     pages: 192
   }]
-
-  @action
-  toggleSelection(book, isSelected){
-    if(isSelected) {
-      this.selectedBookIds.removeObject(book.id)
-    } else {
-      this.selectedBookIds.pushObject(book.id)
-    }
-  }
-
-  @action
-  sortBooks(property, reversed){
-    this.set('reversed', reversed);
-    this.set('sortProperty', property);
-  }
-
-  @action
-  hideBook(book){
-    this.hiddenBookIds.pushObject(book.id)
-  }
-
-  @action
-  hideAllSelected(){
-    this.hiddenBookIds.pushObjects(this.selectedBookIds);
-  }
-
-  @action
-  showBook(book){
-    this.hiddenBookIds.removeObject(book.id)
-  }
-
-  @action
-  showAllSelected(){
-    this.hiddenBookIds.removeObjects(this.selectedBookIds);
-  }
-
-  @action
-  selectAll(){
-    this.set('selectedBookIds', this.sortedBooks.mapBy('id'));
-  }
-
-  @action
-  unselectAll(){
-    this.set('selectedBookIds', []);
-  }
 }
