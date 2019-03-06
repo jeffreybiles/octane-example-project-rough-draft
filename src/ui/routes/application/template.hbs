@@ -1,6 +1,11 @@
 <h2 id="title">Books List</h2>
 
-Bulk Actions: <button {{action 'hideAllSelected'}}>Hide</button>
+Bulk Actions:
+<button {{action 'hideAllSelected'}}>Hide</button>
+<button {{action 'showAllSelected'}}>Show</button>
+<button {{action 'selectAll'}}>Select All</button>
+<button {{action 'unselectAll'}}>Unselect All</button>
+
 <div class="table table--5cols">
   <div class="table-row">
     <SortableHeader @columnName="Name" @sortBooks={{action "sortBooks"}} @sortProperty='name' />

@@ -110,4 +110,19 @@ export default class ApplicationController extends Controller {
   showBook(book){
     this.hiddenBookIds.removeObject(book.id)
   }
+
+  @action
+  showAllSelected(){
+    this.hiddenBookIds.removeObjects(this.selectedBookIds);
+  }
+
+  @action
+  selectAll(){
+    this.set('selectedBookIds', this.sortedBooks.mapBy('id'));
+  }
+
+  @action
+  unselectAll(){
+    this.set('selectedBookIds', []);
+  }
 }
