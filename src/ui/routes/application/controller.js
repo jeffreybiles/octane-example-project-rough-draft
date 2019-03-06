@@ -18,28 +18,19 @@ export default class ApplicationController extends Controller {
   }
 
   selectedBookIds = [1, 4]
-
-  @computed('selectedBookIds.[]', 'books.[]')
-  get selectedBooks(){
-    return this.sortedBooks.filter(book => {
-      return this.selectedBookIds.includes(book.id);
-    })
-  }
-
   hiddenBookIds = [2, 3]
 
-  @computed('hiddenBookIds.[]', 'sortedBooks.[]')
-  get shownBooks(){
-    return this.sortedBooks.filter(book => {
-      return !this.hiddenBookIds.includes(book.id)
-    })
-  }
+  @computed('selectedBookIds.[]', 'books.[]')
+  get selectedBooks(){ return this.booksFromIds(this.selectedBookIds) }
 
   @computed('hiddenBookIds.[]', 'sortedBooks.[]')
-  get hiddenBooks(){
-    return this.sortedBooks.filter(book => {
-      return this.hiddenBookIds.includes(book.id)
-    })
+  get shownBooks(){ return this.sortedBooks.filter(book => !this.hiddenBookIds.includes(book.id)) }
+
+  @computed('hiddenBookIds.[]', 'sortedBooks.[]')
+  get hiddenBooks(){ return this.booksFromIds(this.hiddenBookIds) }
+
+  booksFromIds(idSet){
+    return this.sortedBooks.filter(book => idSet.includes(book.id));
   }
 
   @action toggleSelection(book, isSelected){
@@ -49,12 +40,10 @@ export default class ApplicationController extends Controller {
       this.selectedBookIds.pushObject(book.id)
     }
   }
-
   @action sortBooks(property, reversed){
     this.set('reversed', reversed);
     this.set('sortProperty', property);
   }
-
   @action hideBook(book){ this.hiddenBookIds.pushObject(book.id) }
   @action hideAllSelected(){ this.hiddenBookIds.pushObjects(this.selectedBookIds); }
   @action showBook(book){ this.hiddenBookIds.removeObject(book.id) }
