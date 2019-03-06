@@ -3,8 +3,8 @@
 Bulk Actions:
 <button {{action 'hideAllSelected'}}>Hide</button>
 <button {{action 'showAllSelected'}}>Show</button>
-<button {{action 'selectAll'}}>Select All</button>
-<button {{action 'unselectAll'}}>Unselect All</button>
+<button {{action 'selectAll'}} disabled={{eq selectedBookIds.length sortedBooks.length}}>Select All</button>
+<button {{action 'unselectAll'}} disabled={{eq selectedBookIds.length 0}} >Unselect All</button>
 
 <div class="table table--5cols">
   <div class="table-row">
