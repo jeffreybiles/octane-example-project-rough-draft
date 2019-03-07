@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
-import { action } from '@ember-decorators/object';
-import { computed } from '@ember/object';
-import { setDiff, mapBy } from '@ember-decorators/object/computed';
+import { action, computed } from '@ember-decorators/object';
+import { mapBy } from '@ember-decorators/object/computed';
 
 
 export default class ApplicationController extends Controller {
@@ -20,17 +19,22 @@ export default class ApplicationController extends Controller {
 
   selectedBookIds = [1, 4]
   hiddenBookIds = [2, 3]
+
   @mapBy('sortedBooks', 'id') sortedBookIds;
   // @setDiff('sortedBookIds', 'hiddenBookIds') shownBookIds
 
-  @computed('selectedBookIds.[]', 'books.[]')
-  get selectedBooks(){ return this.booksFromIds(this.selectedBookIds) }
-
+  // @computed('selectedBookIds.[]', 'sortedBooks.[]')
+  // get selectedBooks(){ return this.booksFromIds(this.selectedBookIds) }
+  //
   @computed('hiddenBookIds.[]', 'sortedBooks.[]')
-  get shownBooks(){ return this.sortedBooks.filter(book => !this.hiddenBookIds.includes(book.id)) }
-
-  @computed('hiddenBookIds.[]', 'sortedBooks.[]')
-  get hiddenBooks(){ return this.booksFromIds(this.hiddenBookIds) }
+  get shownBooks(){
+    return this.sortedBooks.filter(book => {
+      return !this.hiddenBookIds.includes(book.id)
+    })
+  }
+  //
+  // @computed('hiddenBookIds.[]', 'sortedBooks.[]')
+  // get hiddenBooks(){ return this.booksFromIds(this.hiddenBookIds) }
 
   booksFromIds(idSet){
     return this.sortedBooks.filter(book => idSet.includes(book.id));
