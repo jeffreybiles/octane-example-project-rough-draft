@@ -785,9 +785,41 @@
     "@glimmer/util" "^0.38.1"
     "@glimmer/wire-format" "^0.38.1"
 
+"@glimmer/component@^0.14.0-alpha.3":
+  version "0.14.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-0.14.0-alpha.3.tgz#bb91a1a6100b76b6ef4271c8144d7cdf0c7323eb"
+  dependencies:
+    "@glimmer/di" "^0.1.9"
+    "@glimmer/env" "^0.1.7"
+    "@glimmer/reference" "^0.39.1"
+    "@glimmer/runtime" "^0.39.1"
+    "@glimmer/tracking" "^0.14.0-alpha.3"
+    "@glimmer/util" "^0.39.1"
+    broccoli-file-creator "^2.1.1"
+    broccoli-merge-trees "^3.0.2"
+    ember-cli-babel "^7.2.0"
+    ember-cli-get-component-path-option "^1.0.0"
+    ember-cli-is-package-missing "^1.0.0"
+    ember-cli-normalize-entity-name "^1.0.0"
+    ember-cli-path-utils "^1.0.0"
+    ember-cli-string-utils "^1.1.0"
+    ember-cli-typescript "^2.0.0-rc.1"
+    ember-compatibility-helpers "^1.1.2"
+
+"@glimmer/di@^0.1.9":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@glimmer/di/-/di-0.1.11.tgz#a6878c07a13a2c2c76fcde598a5c97637bfc4280"
+
 "@glimmer/di@^0.2.0":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@glimmer/di/-/di-0.2.1.tgz#5286b6b32040232b751138f6d006130c728d4b3d"
+
+"@glimmer/encoder@^0.39.2":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/encoder/-/encoder-0.39.2.tgz#8a53bbdc41a58d8ffc0de0d2da223ed3fc23cee1"
+  dependencies:
+    "@glimmer/interfaces" "^0.39.2"
+    "@glimmer/vm" "^0.39.2"
 
 "@glimmer/env@^0.1.7":
   version "0.1.7"
@@ -800,11 +832,45 @@
     "@glimmer/wire-format" "^0.38.1"
     "@simple-dom/interface" "1.4.0"
 
+"@glimmer/interfaces@^0.39.2":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/interfaces/-/interfaces-0.39.2.tgz#56506d1f13fc14022745f08e7effad8898b29a24"
+
+"@glimmer/low-level@^0.39.2":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/low-level/-/low-level-0.39.2.tgz#c76d74c7dade6cf70e817141f4482c926e48ca05"
+
+"@glimmer/program@^0.39.2":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/program/-/program-0.39.2.tgz#143c77fcb2187bc7064f99074ce3125e39203bc6"
+  dependencies:
+    "@glimmer/encoder" "^0.39.2"
+    "@glimmer/interfaces" "^0.39.2"
+    "@glimmer/util" "^0.39.2"
+
+"@glimmer/reference@^0.39.1", "@glimmer/reference@^0.39.2":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/reference/-/reference-0.39.2.tgz#4e5d735f02b06c4fce84240397440131b46ded8b"
+  dependencies:
+    "@glimmer/util" "^0.39.2"
+
 "@glimmer/resolver@^0.4.1":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@glimmer/resolver/-/resolver-0.4.3.tgz#b1baae5c3291b4621002ccf8d7870466097e841d"
   dependencies:
     "@glimmer/di" "^0.2.0"
+
+"@glimmer/runtime@^0.39.1":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/runtime/-/runtime-0.39.2.tgz#fc40697f2bee47c79f38601d8a68ea426ba343d7"
+  dependencies:
+    "@glimmer/interfaces" "^0.39.2"
+    "@glimmer/low-level" "^0.39.2"
+    "@glimmer/program" "^0.39.2"
+    "@glimmer/reference" "^0.39.2"
+    "@glimmer/util" "^0.39.2"
+    "@glimmer/vm" "^0.39.2"
+    "@glimmer/wire-format" "^0.39.2"
 
 "@glimmer/syntax@^0.38.1":
   version "0.38.1"
@@ -815,15 +881,43 @@
     handlebars "^4.0.6"
     simple-html-tokenizer "^0.5.6"
 
+"@glimmer/tracking@^0.14.0-alpha.3":
+  version "0.14.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@glimmer/tracking/-/tracking-0.14.0-alpha.3.tgz#d70e67c10194a9466f0b8e736ccbd4913f370750"
+  dependencies:
+    "@glimmer/di" "^0.1.9"
+    "@glimmer/env" "^0.1.7"
+    "@glimmer/reference" "^0.39.1"
+    "@glimmer/runtime" "^0.39.1"
+    "@glimmer/util" "^0.39.1"
+
 "@glimmer/util@^0.38.1":
   version "0.38.1"
   resolved "https://registry.yarnpkg.com/@glimmer/util/-/util-0.38.1.tgz#41ca0544f95ec980bc492f4f0e5a85564964c028"
+
+"@glimmer/util@^0.39.1", "@glimmer/util@^0.39.2":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/util/-/util-0.39.2.tgz#ce9a2d5916f90f4b4c23ad0983d0bbb48e38cea7"
+
+"@glimmer/vm@^0.39.2":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/vm/-/vm-0.39.2.tgz#ef9392b8104a36e920e71737409874692b9e564e"
+  dependencies:
+    "@glimmer/interfaces" "^0.39.2"
+    "@glimmer/util" "^0.39.2"
 
 "@glimmer/wire-format@^0.38.1":
   version "0.38.1"
   resolved "https://registry.yarnpkg.com/@glimmer/wire-format/-/wire-format-0.38.1.tgz#a77963cf7193ab23cbce242116aac613f17cd3dc"
   dependencies:
     "@glimmer/util" "^0.38.1"
+
+"@glimmer/wire-format@^0.39.2":
+  version "0.39.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/wire-format/-/wire-format-0.39.2.tgz#06730951dec6b5f5cdfc2bf4b31d0243bd4f1817"
+  dependencies:
+    "@glimmer/interfaces" "^0.39.2"
+    "@glimmer/util" "^0.39.2"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
