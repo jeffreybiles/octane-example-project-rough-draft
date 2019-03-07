@@ -51,6 +51,5 @@ export default class BooksController extends Controller {
   @action selectAll(){ this.set('selectedBookIds', this.sortedBooks.mapBy('id')); }
   @action unselectAll(){ this.set('selectedBookIds', []); }
 
-  @computed('model.[]')
-  get books() { return this.model }
+  @computed('model.[]') get books() { return this.model }
 }
