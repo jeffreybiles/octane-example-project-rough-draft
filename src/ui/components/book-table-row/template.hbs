@@ -5,6 +5,6 @@
   <div class="table-cell">{{@book.pages}}</div>
   <div class="table-cell">
     <button {{action toggleMyBook @book preventDefault=true}}>{{@toggleText}}</button>
-    {{link-to 'Visit' 'books.book' tagName="button"}}
+    {{link-to 'Visit' 'books.book' @book.id tagName="button"}}
   </div>
 </div>
