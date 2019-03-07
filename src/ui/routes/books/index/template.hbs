@@ -16,24 +16,26 @@ Bulk Actions:
   </div>
 
 
-  {{#each shownBooks as |book|}}
+  {{#each shownBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @selectedBookIds={{selectedBookIds}}
                   @toggleSelection={{action "toggleSelection"}}
                   @toggleHidden={{action "hideBook"}}
-                  @toggleText="Hide" />
+                  @toggleText="Hide"
+                  @index={{index}} />
   {{else}}
     <div class="table-row"><p>All your books are hidden.</p></div>
   {{/each}}
 
   {{#if hiddenBooks}}<h2>Hidden Books</h2>{{/if}}
 
-  {{#each hiddenBooks as |book|}}
+  {{#each hiddenBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @selectedBookIds={{selectedBookIds}}
                   @toggleSelection={{action "toggleSelection"}}
                   @toggleHidden={{action "showBook"}}
-                  @toggleText="Show" />
+                  @toggleText="Show"
+                  @index={{index}} />
   {{/each}}
 </div>
 {{outlet}}

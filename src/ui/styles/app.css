@@ -44,13 +44,17 @@
   cursor: pointer;
 }
 
-.table-cell.zebra {
-  background: #EEE;
+.table-row.zebra .table-cell {
+  background-color: #EEE;
 }
 
 .table-row.selected .table-cell {
   background: #BBE;
   border-color: #555;
+}
+
+.table-row.zebra.selected .table-cell {
+  background-color: #A9A9D9;
 }
 
 /* Table column sizing

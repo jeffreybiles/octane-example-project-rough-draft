@@ -18,7 +18,7 @@ export default class BooksController extends Controller {
   }
 
   selectedBookIds = [1, 4]
-  hiddenBookIds = [2, 3]
+  hiddenBookIds = [1, 3]
 
   @computed('selectedBookIds.[]', 'sortedBooks.[]')
   get selectedBooks(){ return this.booksFromIds(this.selectedBookIds) }

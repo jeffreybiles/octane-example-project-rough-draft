@@ -10,6 +10,11 @@ export default class BookTableRowComponent extends Component {
     return this.selectedBookIds.includes(this.book.id);
   }
 
+  @computed('index')
+  get isStriped() {
+    return this.index % 2 === 0
+  }
+
   @action
   toggleMySelection(){
     this.toggleSelection(this.book, this.isSelected);
