@@ -669,14 +669,14 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@ember-decorators/babel-transforms@^3.1.0":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/babel-transforms/-/babel-transforms-3.1.5.tgz#6df543f7f1d862ad54d05555d548805e032f6514"
+"@ember-decorators/babel-transforms@^5.1.4":
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/babel-transforms/-/babel-transforms-5.1.4.tgz#e26e0480425e4b6e43be75e24ba85103a02d5459"
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.1.0"
     "@babel/plugin-proposal-decorators" "^7.1.2"
     ember-cli-babel-plugin-helpers "^1.0.0"
-    ember-cli-version-checker "^2.1.0"
+    ember-cli-version-checker "^3.0.0"
 
 "@ember-decorators/component@^5.1.4":
   version "5.1.4"
