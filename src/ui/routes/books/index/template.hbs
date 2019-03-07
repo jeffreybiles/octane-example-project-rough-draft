@@ -18,7 +18,7 @@ Bulk Actions:
 
   {{#each shownBooks as |book index|}}
     <BookTableRow @book={{book}}
-                  @selectedBookIds={{selectedBookIds}}
+                  @selectedBookIds={{this.selectedBookIds}}
                   @toggleSelection={{action this.toggleSelection}}
                   @toggleHidden={{action this.hideBook}}
                   @toggleText="Hide"
@@ -31,7 +31,7 @@ Bulk Actions:
 
   {{#each hiddenBooks as |book index|}}
     <BookTableRow @book={{book}}
-                  @selectedBookIds={{selectedBookIds}}
+                  @selectedBookIds={{this.selectedBookIds}}
                   @toggleSelection={{action this.toggleSelection}}
                   @toggleHidden={{action this.showBook}}
                   @toggleText="Show"

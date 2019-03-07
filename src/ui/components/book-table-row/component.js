@@ -1,16 +1,17 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export default class BookTableRowComponent extends Component {
-  tagName = ''
+  @tracked selectedBookIds = [];
+  @tracked book = {};
+  @tracked index;
 
-  @computed('selectedBookIds.[]', 'book')
   get isSelected(){
     return this.selectedBookIds.includes(this.book.id);
   }
 
-  @computed('index')
   get isStriped() {
+    console.log(this.index)
     return this.index % 2 === 0
   }
 }
