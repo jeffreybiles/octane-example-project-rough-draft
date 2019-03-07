@@ -3,7 +3,7 @@ import { action } from '@ember-decorators/object';
 import { computed } from '@ember/object';
 
 
-export default class ApplicationController extends Controller {
+export default class BooksController extends Controller {
   sortProperty = 'publicationYear'
   reversed = false
 
