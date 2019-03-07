@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { action } from '@ember-decorators/object';
 import { computed } from '@ember/object';
 
 export default class BookTableRowComponent extends Component {
@@ -13,13 +12,5 @@ export default class BookTableRowComponent extends Component {
   @computed('index')
   get isStriped() {
     return this.index % 2 === 0
-  }
-
-  @action toggleMySelection(){
-    this.toggleSelection(this.book, this.isSelected);
-  }
-
-  @action toggleMyBook(){
-    this.toggleHidden(this.book);
   }
 }

@@ -1,10 +1,10 @@
-<div class="table-row {{if isStriped 'zebra'}} {{if isSelected 'selected'}}" {{action toggleMySelection @book}}>
+<div class="table-row {{if isStriped 'zebra'}} {{if isSelected 'selected'}}" {{action @toggleSelection @book this.isSelected}}>
   <div class="table-cell">{{@book.name}}</div>
   <div class="table-cell">{{@book.author}}</div>
   <div class="table-cell">{{@book.publicationYear}}</div>
   <div class="table-cell">{{@book.pages}}</div>
   <div class="table-cell">
-    <button {{action toggleMyBook @book preventDefault=true}}>{{@toggleText}}</button>
+    <button {{action @toggleHidden @book preventDefault=true}}>{{@toggleText}}</button>
     {{link-to 'Visit' 'books.book' @book.id tagName="button"}}
   </div>
 </div>

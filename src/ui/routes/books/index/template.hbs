@@ -1,17 +1,17 @@
 <h2 id="title">Books List</h2>
 
 Bulk Actions:
-<button {{action 'hideAllSelected'}}>Hide</button>
-<button {{action 'showAllSelected'}}>Show</button>
-<button {{action 'selectAll'}} disabled={{eq selectedBookIds.length sortedBooks.length}}>Select All</button>
-<button {{action 'unselectAll'}} disabled={{eq selectedBookIds.length 0}} >Unselect All</button>
+<button {{action this.hideAllSelected}}>Hide</button>
+<button {{action this.showAllSelected}}>Show</button>
+<button {{action this.selectAll}} disabled={{eq selectedBookIds.length sortedBooks.length}}>Select All</button>
+<button {{action this.unselectAll}} disabled={{eq selectedBookIds.length 0}} >Unselect All</button>
 
 <div class="table table--5cols">
   <div class="table-row">
-    <SortableHeader @columnName="Name" @sortBooks={{action "sortBooks"}} @sortProperty='name' />
-    <SortableHeader @columnName="Author" @sortBooks={{action "sortBooks"}} @sortProperty='author' />
-    <SortableHeader @columnName="Publication Year" @sortBooks={{action "sortBooks"}} @sortProperty='publicationYear' />
-    <SortableHeader @columnName="Pages" @sortBooks={{action "sortBooks"}} @sortProperty='pages' />
+    <SortableHeader @columnName="Name" @sortBooks={{action this.sortBooks}} @sortProperty='name' />
+    <SortableHeader @columnName="Author" @sortBooks={{action this.sortBooks}} @sortProperty='author' />
+    <SortableHeader @columnName="Publication Year" @sortBooks={{action this.sortBooks}} @sortProperty='publicationYear' />
+    <SortableHeader @columnName="Pages" @sortBooks={{action this.sortBooks}} @sortProperty='pages' />
     <SortableHeader @columnName="Actions" />
   </div>
 
@@ -19,8 +19,8 @@ Bulk Actions:
   {{#each shownBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @selectedBookIds={{selectedBookIds}}
-                  @toggleSelection={{action "toggleSelection"}}
-                  @toggleHidden={{action "hideBook"}}
+                  @toggleSelection={{action this.toggleSelection}}
+                  @toggleHidden={{action this.hideBook}}
                   @toggleText="Hide"
                   @index={{index}} />
   {{else}}
@@ -32,8 +32,8 @@ Bulk Actions:
   {{#each hiddenBooks as |book index|}}
     <BookTableRow @book={{book}}
                   @selectedBookIds={{selectedBookIds}}
-                  @toggleSelection={{action "toggleSelection"}}
-                  @toggleHidden={{action "showBook"}}
+                  @toggleSelection={{action this.toggleSelection}}
+                  @toggleHidden={{action this.showBook}}
                   @toggleText="Show"
                   @index={{index}} />
   {{/each}}

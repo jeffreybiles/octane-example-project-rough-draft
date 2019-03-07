@@ -1,7 +1,7 @@
 <div class="table-cell header">
   {{#if @sortBooks}}
-    <span {{action 'sortMyBooks' @sortProperty true}} class="clickable">&uarr;</span>
-    <span {{action 'sortMyBooks' @sortProperty false}} class="clickable">&darr;</span>
+    <span {{action @sortBooks @sortProperty true}} class="clickable">&uarr;</span>
+    <span {{action @sortBooks @sortProperty false}} class="clickable">&darr;</span>
   {{/if}}
   {{@columnName}}
 </div>
