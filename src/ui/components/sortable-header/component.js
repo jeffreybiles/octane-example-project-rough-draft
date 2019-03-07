@@ -4,8 +4,7 @@ import { action } from '@ember-decorators/object';
 export default class SortableHeaderComponent extends Component {
   tagName = ''
 
-  @action
-  sortMyBooks(property, reversed){
+  @action sortMyBooks(property, reversed){
     this.sortBooks(property, reversed)
   }
 }

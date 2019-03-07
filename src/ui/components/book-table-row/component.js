@@ -15,13 +15,11 @@ export default class BookTableRowComponent extends Component {
     return this.index % 2 === 0
   }
 
-  @action
-  toggleMySelection(){
+  @action toggleMySelection(){
     this.toggleSelection(this.book, this.isSelected);
   }
 
-  @action
-  toggleMyBook(){
+  @action toggleMyBook(){
     this.toggleHidden(this.book);
   }
 }
