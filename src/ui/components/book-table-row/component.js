@@ -2,16 +2,16 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 export default class BookTableRowComponent extends Component {
-  @tracked selectedBookIds = [];
-  @tracked book = {};
+  // None of these seem to track properly...
+  @tracked args;
   @tracked index;
+  // @tracked args.index
 
   get isSelected(){
-    return this.selectedBookIds.includes(this.book.id);
+    return this.args.selectedBookIds.includes(this.args.book.id);
   }
 
   get isStriped() {
-    console.log(this.index)
-    return this.index % 2 === 0
+    return this.args.index % 2 === 0
   }
 }
