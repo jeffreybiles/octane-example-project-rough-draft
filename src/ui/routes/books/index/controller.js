@@ -1,10 +1,14 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 
 export default class BooksController extends Controller {
   sortProperty = 'publicationYear'
   reversed = false
+
+  // @tracked sortedBooks;
+  // When I try to track sortedBooks, I get error `Duplicated element (sortedBooks)`
 
   @computed('books.[]', 'sortProperty', 'reversed')
   get sortedBooks(){
